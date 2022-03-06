@@ -1,0 +1,1 @@
+include<stdio.h> void main() { FILE *num, *odd, *even; int read; num = fopen("num.txt", "r+"); even = fopen("even.txt", "w"); odd = fopen("odd.txt", "w"); /*for(int i=0;i<500;i++) { fprintf(num,"%d,",i); }*/ while(!feof(num)) { fscanf(num,"%d,",&read); if(read%2 == 0) { fprintf(even,"%d,",read); } else { fprintf(odd,"%d,",read); } } fclose(num); fclose(odd); fclose(even); }

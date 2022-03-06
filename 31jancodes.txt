@@ -1,0 +1,153 @@
+// function for finding simple interest by Aditya
+
+#include<stdio.h>
+float Simple_int(float p, float r, float t) 
+{
+    float si;   
+    si = (p * r * t)/100; // formula
+    return si; 
+}
+ int main()
+{
+    float a,b,c;
+    float intrest;
+    printf("\nEnter Prinicpal :\t");
+    scanf("%f",&a);
+    printf("\nEnter year:\t");
+    scanf("%f",&b);
+    printf("\nEnter Rate:\t");
+    scanf("%f",&c); 
+    intrest = Simple_int(a,b,c); 
+    printf("\nSimple Interest = %f\n", intrest); //output
+    printf("\n");
+    return 0;
+}
+**********************************************************************
+
+// C program to swap two variables using a funtion by Aditya
+
+#include <stdio.h>
+
+
+void swap(int x1, int y1)
+{
+	int temp = x1;
+	x1 = y1;
+	y1 = temp;
+}
+
+int main()
+{
+	int x, y;
+	printf("Enter Value of x ");
+	scanf("%d", &x);
+	printf("\nEnter Value of y ");
+	scanf("%d", &y);
+	swap(x, y);
+	printf("\nAfter Swapping: x = %d, y = %d", y, x);
+	return 0;
+}
+***********************************************************************
+#include <stdio.h>
+
+
+int main()
+{
+	int quantity = 0,product = 0,inp=0;
+
+	float unitPrice = 0.0;
+	float total = 0.0;
+
+	// Collect the product number
+	printf("Enter product number (1-5) or 0 to quit: ");
+	scanf("%d",&product);
+
+	
+	while ((product > 0) && (product <= 5)&&(inp<4)) {
+		printf("Enter quantity: ");
+		scanf("%d",&quantity);
+        
+
+		// Based on product number, set unitPrice
+		switch(product) {
+			case 1:
+				unitPrice = 29.5;
+				break;
+			case 2:
+				unitPrice = 45.0;
+				break;
+			case 3:
+				unitPrice = 49.0;
+				break;
+			case 4:
+				unitPrice = 95.5;
+				break;
+			case 5:
+				unitPrice = 68.5;
+				break;
+			default:
+				break;
+		}
+		
+	
+		total += (unitPrice * quantity);
+
+
+		printf( "Enter product number (1-5) or 0 to quit: ");
+		scanf("%d",&product);
+        inp++;
+	}
+
+	printf("\nTotal is: Rs%f\n\n",total);
+}
+***********************************************************************
+#include <stdio.h>
+#include<stdlib.h>
+#include<time.h>
+int main()
+{
+    int num, guess, tries = 0;
+    char yn;
+    srand(time(0)); 
+    num = rand() % 100 + 1; 
+
+    printf("Guess My Number Game\n\n");
+
+    do
+    {
+        printf("Enter a guess between 1 and 100 : ");
+        scanf("%d", &guess);
+        tries++;
+
+        if (guess > num && tries<=3)
+        {
+            printf("Too high!\n\n");
+        }
+        else if (guess < num && tries<=3)
+        {
+            printf("Too low!\n\n");
+        }
+        else if(tries==3);
+        {
+            printf("You loose!!");
+            printf("Do you wanna play more??(y/n) ");
+            scanf("%c",&yn);
+            if(yn=="y")
+            {tries=0;
+            continue;}
+            else
+            {break;}
+        }
+        else
+        {
+            printf("\nCorrect! You got it in %d guesses!\n", tries);
+        }
+		
+    }while (guess != num);
+    printf("Do you wanna play more??");
+    scanf("%c",&yn);
+   
+    
+
+    return 0;
+}

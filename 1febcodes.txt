@@ -1,0 +1,188 @@
+// C program to swap two variables using a pointer by Aditya
+
+#include <stdio.h>
+
+
+void swap(int *x1, int *y1)
+{
+	int temp = *x1;
+	*x1 = *y1;
+	*y1 = temp;
+}
+
+int main()
+{
+	int x, y, var;
+	int *p;
+	p=&var;
+
+	printf("Address of var is=%p\n Enter Value of x and y",p);
+	scanf("%d %d", &x,&y);
+	swap(&x, &y);
+	printf("\nAfter Swapping: x = %d, y = %d", x, y);
+	return 0;
+}
+*****************************************************************
+
+#include<stdio.h>
+
+void main()
+{
+    int num1,num2,*p,*q;
+    p= &num1;
+    q= &num2;
+    printf("Enter two numbers to add=");
+    scanf("%d %d",&num1,&num2);
+
+    printf("\nSum =%d \n",*p+*q);
+
+}
+*****************************************************************
+
+#include<stdio.h>
+
+void random(int *, int *);
+
+void main()
+{
+    int a= 10,b=20;
+    printf("before call a= %d and b= %d\n",a,b);
+    random(&a,&b);
+    printf("After call a=%d and b=%d\n",a,b);
+}
+
+void random(int *x, int *y)
+{
+    *x=12;
+    *y= 17;
+}
+******************************************************************
+// Aditya verma
+#include<stdio.h>
+#include<string.h>
+
+struct student
+{
+    /* data */
+    int sid, backlog;
+    char name[20];
+    float cgpa;
+
+}s1,s2;
+
+void main()
+{
+    struct student s3, s4;
+
+    s1.sid=1;
+    strcpy(s1.name,"abc");
+    s1.cgpa = 6.7;
+    s1.backlog=4;
+
+    printf("Enter student id: \n");
+    scanf("%d",&s2.sid);
+    printf("Enter student name: \n");
+    scanf("\n%s",s2.name);
+    printf("Enter student cgpa: \n");
+    scanf("\n%f",&s2.cgpa);
+    printf("Enter student backs: \n");
+    scanf("\n%d",&s2.backlog);
+
+    printf("Student 2 details are:%d\n%s\n%f\n%d\n ",s2.sid,s2.name,s2.cgpa,s2.backlog);
+}
+***********************************************************************
+// Aditya verma
+#include<stdio.h>
+#include<string.h>
+
+struct student
+{
+    /* data */
+    int sid, backlog;
+    char name[20];
+    float cgpa;
+
+}s[3];
+
+void main()
+{
+    int i;
+
+    for(i=0;i<3;i++)
+    {
+        printf("\nEnter details for student %d\n",i+1);
+        printf("Enter student id: \n");
+    scanf("%d",&s[i].sid);
+    printf("Enter student name: \n");
+    scanf("\n%s",s[i].name);
+    printf("Enter student cgpa: \n");
+    scanf("\n%f",&s[i].cgpa);
+    printf("Enter student backs: \n");
+    scanf("\n%d",&s[i].backlog);
+
+    }
+    for(i=0;i<3;i++)
+    {
+        printf("Student details are:%d\n%s\n%f\n%d\n ",s[i].sid,s[i].name,s[i].cgpa,s[i].backlog);
+
+    }
+}
+***********************************************************************
+#include <stdio.h>
+int main()
+{ 
+    int val,withdraw=0,deposit=0;
+    int balance =500;
+    int check=0;
+    int  pin, wrongPin=0;
+    printf("Enter bank pin: ");
+    scanf("%d",&pin);
+    for(int i=0;i<=2;i++)
+    {
+        if(pin==1546)
+        {
+            while(check==0)
+            {
+                printf("Enter 1 for Check Balance\n");
+                printf("Enter 2 for Withdraw cash\n");
+                printf("Enter 3 for Deposit Cash\n");
+                printf("Enter 4 for End Transaction\n ");
+                scanf("%d",&val);
+                if(val==1)
+                {
+                    printf("CURRENT BALANCE IS :%d\n",balance);
+                }
+                else if(val==2){
+                    printf("CASH THAT WILL WITHDRAW :");
+                    scanf("%d\n",&withdraw);
+                    balance=balance-withdraw;
+                    printf("current balance %d\n",balance);
+                }
+                else if(val==3)
+                {
+                    printf("CASH THAT WILL DEPOSIT :");
+                    scanf("%d\n",&deposit);
+                    balance=balance+deposit;
+                    printf("current balance %d\n",deposit);
+                }
+                else if(val==4)
+                {
+                    printf("Transaction ended\n");
+                    check=1;
+                    break;
+                }
+            }
+        }
+        else{
+            printf("INCORRECT PIN\n");
+            printf("Enter bank pin: ");
+            scanf("%d",&pin);
+        }
+    }
+    if(check==1)
+    {
+        printf("CARD BLOCKED\n");
+    }
+    return 0;
+}
+*******************************************************************
